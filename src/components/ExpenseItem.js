@@ -36,12 +36,34 @@ const ExpenseItem = (props) => {
         });
     };
 
+    const buttonStyle = {
+        display: 'inline-block',
+        padding: '5px 10px',
+        fontSize: '1rem',
+        borderRadius: '50%',
+        cursor: 'pointer',
+        marginLeft: '5px',
+        boxShadow: '0 0 5px rgba(0, 0, 0, 0.2)',
+    };
+
+    const plusButtonStyle = {
+        ...buttonStyle,
+        backgroundColor: 'green',
+        color: 'white',
+    };
+
+    const minusButtonStyle = {
+        ...buttonStyle,
+        backgroundColor: 'red',
+        color: 'white',
+    };
+
     return (
         <tr>
         <td>{props.name}</td>
         <td>£{props.cost}</td>
-        <td><button onClick={event=> increaseAllocation(props.name)}>+</button></td>
-        <td><button onClick={event=> decreaseAllocation(props.name)}>-</button></td>
+        <td><button onClick={(event) => increaseAllocation(props.name)} style={plusButtonStyle}>+</button></td>
+        <td><button onClick={(event) => decreaseAllocation(props.name)} style={minusButtonStyle}>-</button></td>
         <td><TiDelete size='1.5em' onClick={handleDeleteExpense}></TiDelete></td>
         </tr>
     );
